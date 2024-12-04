@@ -25,7 +25,7 @@ for conf_file in $conf_files_list; do
         else
             echo "[*] Checking asset for conf: $conf_folder/$conf_file..."
             asset_matches=$(check_asset "$conf_folder/$conf_file" "$asset_details")
-            if [ "$asset_matches" == "" ]; then
+            if [ "$asset_matches" == "" ] || [ "$asset_matches" == "null" ]; then
                 echo "[*] Updating asset for conf: $conf_folder/$conf_file..."
                 update_asset "$conf_folder/$conf_file" "$asset_details"
             fi
